@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DepartmentController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,5 +21,7 @@ Route::middleware([
         return view('greeting', ['name' => 'Antonis']);
     })->name('greeting');
 });
+
+Route::resource('departments', DepartmentController::class);
 
 Route::view('/employee', 'admin.create');
