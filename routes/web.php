@@ -19,3 +19,5 @@ Route::middleware([
         return view('greeting', ['name' => 'Antonis']);
     })->name('greeting');
 });
+
+Route::view('/employee', 'admin.create');
