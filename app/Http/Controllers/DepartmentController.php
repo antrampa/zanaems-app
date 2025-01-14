@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Department;
+use App\Http\Requests\DepartmentRequest;
+use App\Models\Department;
 
 class DepartmentController extends Controller
 {
@@ -26,9 +27,12 @@ class DepartmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DepartmentRequest $request)
     {
-        //
+        $data = $request->validated();
+        //dd($request->all());
+        Department::create($data);
+        return redirect()->back()->with('message','Department created Successfully');
     }
 
     /**

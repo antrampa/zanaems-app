@@ -4,7 +4,12 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <form action="" method="post">
+            @if(Session::has('message'))
+                <div class="alert alert-success">
+                    {{Session::get('message')}}
+                </div>
+            @endif
+            <form action="{{route('departments.store')}}" method="post">@csrf
                 <div class="card">
                     <div class="card-header">Dashboard</div>
                     <div class="card-body">
@@ -13,7 +18,7 @@
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="name">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{message}}</strong>
+                                    <strong>{{$message}}</strong>
                                 </span>
                             @enderror
                     </div>
@@ -22,7 +27,7 @@
                             <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"></textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{message}}</strong>
+                                    <strong>{{$message}}</strong>
                                 </span>
                             @enderror
                     </div>
