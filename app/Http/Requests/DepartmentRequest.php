@@ -32,6 +32,7 @@ class DepartmentRequest extends FormRequest
                 'max:255',
                 Rule::unique('departments')->ignore($this->department),
             ],
+            'description' => ['required','string'],
         ];
     }
 }
