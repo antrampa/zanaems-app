@@ -27,8 +27,8 @@
                         <td>{{$key+1}}</td>
                         <td>{{$department->name}}</td>
                         <td>{{$department->description}}</td>
-                        <td><i class="fas fa-trash"></i></td>
                         <td><i class="fas fa-edit"></i></td>
+                        <td><i class="fas fa-trash"></i></td>
                     </tr>
                     @endforeach
                 @else 
