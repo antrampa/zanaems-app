@@ -60,7 +60,7 @@ class DepartmentController extends Controller
         $department = Department::find($id);
         $data = $request->all();
         $department->update($data);
-        return redirect()->back()->with('message', 'Record updated successfully');
+        return redirect()->route('departments.index')->with('message', 'Record updated successfully');
     }
 
     /**
