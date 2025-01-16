@@ -9,13 +9,15 @@
                     {{Session::get('message')}}
                 </div>
             @endif
-            <form action="{{route('departments.store')}}" method="post">@csrf
+            <form action="{{route('departments.update', [$department->id])}}" method="post">@csrf
+                {{method_field('PATCH')}}
                 <div class="card">
-                    <div class="card-header">Create New Department</div>
+                    <div class="card-header">Update Department</div>
                     <div class="card-body">
                     <div class="form-group mt-4">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" 
+                            name="name" value="{{$department->name}}">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{$message}}</strong>
@@ -24,7 +26,7 @@
                     </div>
                     <div class="form-group mt-4">
                             <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror"></textarea>
+                            <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror">{{$department->description}}</textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{$message}}</strong>
@@ -32,7 +34,7 @@
                             @enderror
                     </div>
                     <div class="form-group mt-4">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                     </div>
                 </div>

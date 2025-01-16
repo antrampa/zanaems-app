@@ -31,7 +31,6 @@ class DepartmentController extends Controller
     public function store(DepartmentRequest $request)
     {
         $data = $request->validated();
-        //dd($request->all());
         Department::create($data);
         return redirect()->back()->with('message','Department created Successfully');
     }
@@ -41,7 +40,7 @@ class DepartmentController extends Controller
      */
     public function show(string $id)
     {
-        //
+       //
     }
 
     /**
@@ -49,7 +48,8 @@ class DepartmentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $department = Department::find($id);
+        return view('admin.department.edit',compact('department'));
     }
 
     /**
@@ -57,7 +57,10 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $department = Department::find($id);
+        $data = $request->all();
+        $department->update($data);
+        return redirect()->back()->with('message', 'Record updated successfully');
     }
 
     /**

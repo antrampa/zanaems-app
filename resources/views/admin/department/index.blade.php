@@ -9,7 +9,13 @@
                     <li class="breadcrumb-item active" aria-current="page">All Departments</li>
                 </ol>
             </nav>
-
+            
+            @if(Session::has('message'))
+                <div class="alert alert-success">
+                    {{Session::get('message')}}
+                </div>
+            @endif
+            
             <table class="table table-bordered" id="datatablesSimple" with="100%" collspacing="0">
                 <thead>
                     <tr>
@@ -27,7 +33,7 @@
                         <td>{{$key+1}}</td>
                         <td>{{$department->name}}</td>
                         <td>{{$department->description}}</td>
-                        <td><i class="fas fa-edit"></i></td>
+                        <td><a href="{{route('departments.edit',[$department->id])}}"><i class="fas fa-edit"></i></a></td>
                         <td><i class="fas fa-trash"></i></td>
                     </tr>
                     @endforeach
