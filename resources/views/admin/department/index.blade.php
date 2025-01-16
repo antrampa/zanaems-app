@@ -35,11 +35,11 @@
                         <td>{{$department->description}}</td>
                         <td><a href="{{route('departments.edit',[$department->id])}}"><i class="fas fa-edit"></i></a></td>
                         <td>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$key+1}}">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$department->id}}">
                                 <i class="fas fa-trash"></i>
                             </a>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal_{{$key+1}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal_{{$department->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <form action="{{route('departments.destroy', [$department->id])}}" method="post">@csrf
                                     {{method_field('DELETE')}}
