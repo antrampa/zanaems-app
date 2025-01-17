@@ -65,7 +65,7 @@
                     @endforeach
                 @else 
                     <tr>
-                        <td>
+                        <td colspan="5" align="center">
                             No departments to display
                         </td>
                     </tr>
