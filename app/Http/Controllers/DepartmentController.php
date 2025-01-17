@@ -31,7 +31,7 @@ class DepartmentController extends Controller
     public function store(DepartmentRequest $request)
     {
         $data = $request->validated();
-        Department::create($data);
+        Department::create($request->all());
         return redirect()->back()->with('message','Department created Successfully');
     }
 

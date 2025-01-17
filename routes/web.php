@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,5 +24,4 @@ Route::middleware([
 });
 
 Route::resource('departments', DepartmentController::class);
-
-Route::view('/employee', 'admin.create');
+Route::resource('roles', RoleController::class);
