@@ -40,7 +40,7 @@ class UserController extends Controller
             'role_id' => 'required',
             'start_from' => 'required',
             'designation' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         //$validated = $request->validated();
