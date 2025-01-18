@@ -2,12 +2,11 @@
 
 @section('content')
 <div class="container mt-5">
-    <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Register employee
-                    
-                </li>
-              </ol>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('users.index')}}">All employee</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Register employee</li>
+                </ol>
             </nav>
             @if(Session::has('message'))
                 <div class="alert alert-success">

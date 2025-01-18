@@ -4,6 +4,12 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('roles.index')}}">All Roles</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Create New Role</li>
+                </ol>
+            </nav>
             @if(Session::has('message'))
                 <div class="alert alert-success">
                     {{Session::get('message')}}
