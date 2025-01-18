@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Models\User;
 
 
 class UserController extends Controller
@@ -27,10 +28,37 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
-        dd($request->all());
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'department_id' => 'required',
+            'role_id' => 'required',
+            'start_from' => 'required',
+            'designation' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        //$validated = $request->validated();
+        $data = $request->all();
+        //dd($data);
+        if($request->hasFile('image')) {
+            $image = $request->image->hashName();
+            $request->image->move(public_path('profile'), $image);
+        } else {
+            $image = 'avatar2.png';
+        }
+
+        $data['name'] = $request->firstname.' '.$request->lastname;
+        $data['image'] = $image;
+        $data['password'] = bcrypt($request->password);
+
+        User::create($data);
+
+        return redirect()->back()->with('message', 'User created Successfully');
     }
 
     /**

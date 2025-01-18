@@ -9,6 +9,11 @@
                 </li>
               </ol>
             </nav>
+            @if(Session::has('message'))
+                <div class="alert alert-success">
+                    {{Session::get('message')}}
+                </div>
+            @endif
         <form action="{{route('users.store')}}" method="post" enctype="multipart/form-data">@csrf
 
     <div class="row justify-content-center">
@@ -52,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label>Image</label>
-                        <input type="file" name="image" class="form-control" accept="images/*" required="">
+                        <input type="file" name="image" class="form-control" accept="image/*" required="">
                     </div>
                 </div>
             </div>

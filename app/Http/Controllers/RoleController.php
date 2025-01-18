@@ -30,6 +30,9 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
+        // $request->validate([
+        //     'name' => 'required|string|max:255'
+        // ]);
         $data = $request->validated();
         Role::create($request->all());
         return redirect()->back()->with('message','Rule created Successfully');
