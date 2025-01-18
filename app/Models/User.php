@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Department;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -70,5 +72,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function department() {
+        return $this->hasOne(Department::class, 'id', 'department_id');
+    }
+
+    public function role() {
+        return $this->hasOne(Role::class, 'id', 'role_id');
     }
 }
