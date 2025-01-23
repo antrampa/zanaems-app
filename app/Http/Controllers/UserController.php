@@ -76,15 +76,45 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'department_id' => 'required',
+            'role_id' => 'required',
+            'start_from' => 'required',
+            'designation' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $data = $request->all();
+        $user = User::find($id);
+        if($request->hasFile('image')) {
+            $image = $request->image->hashName();
+            $request->image->move(public_path('profile'), $image);
+        } else {
+            $image = $user->image;
+        }
+
+        if($request->password) {
+            $password = bcrypt($request->password);
+        } else {
+            $password = $user->password;
+        }
+
+        $data['image'] = $image;
+        $data['password'] = $password;
+        $user->update($data);
+        
+        return redirect()->back()->with('message', 'User updated Successfully');
     }
 
     /**
