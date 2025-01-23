@@ -42,6 +42,7 @@ class UserController extends Controller
             'designation' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+        
 
         //$validated = $request->validated();
         $data = $request->all();

@@ -22,20 +22,37 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>First name</label>
-                        <input type="text" name="firstname" class="form-control" required="">
+                        <input type="text" name="firstname" 
+                        class="form-control @error('firstname') is-invalid @enderror" 
+                        required="">
+                        @error('firstname')
+                           <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                           </span>         
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Last name</label>
-                        <input type="text" name="lastname" class="form-control" required="">
+                        <input type="text" name="lastname" 
+                        class="form-control  @error('lastname') is-invalid @enderror" 
+                        required="">
+                        @error('lastname')
+                           <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                           </span>         
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <input type="text" name="address" class="form-control">
+                        <input type="text" name="address" 
+                        class="form-control">
+
                     </div>
                     
                     <div class="form-group">
                         <label>Mobile number </label>
-                        <input type="number" name="mobile_number" class="form-control">
+                        <input type="number" name="mobile_number" 
+                        class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Department</label>
@@ -48,15 +65,36 @@
                     </div>
                     <div class="form-group">
                         <label>Designation</label>
-                        <input type="text" name="designation" class="form-control" required="">
+                        <input type="text" name="designation" 
+                        class="form-control  @error('designation') is-invalid @enderror" 
+                        required="">
+                        @error('designation')
+                           <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                           </span>         
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Start date</label>
-                        <input type="date" name="start_from" class="form-control" placeholder="dd-mm-yyyy" required="">
+                        <input type="date" name="start_from" 
+                        class="form-control  @error('start_from') is-invalid @enderror" 
+                        placeholder="dd-mm-yyyy" required="">
+                        @error('start_from')
+                           <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                           </span>         
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Image</label>
-                        <input type="file" name="image" class="form-control" accept="image/*" />
+                        <input type="file" name="image" 
+                        class="form-control  @error('image') is-invalid @enderror" 
+                        accept="image/*" />
+                        @error('image')
+                           <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                           </span>         
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -67,11 +105,25 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>Email </label>
-                        <input type="email" name="email" class="form-control" required="">
+                        <input type="email" name="email" 
+                        class="form-control  @error('email') is-invalid @enderror" 
+                        required="">
+                        @error('email')
+                           <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                           </span>         
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" name="password" class="form-control" required="">
+                        <input type="password" name="password" 
+                        class="form-control @error('password') is-invalid @enderror" 
+                        required="">
+                        @error('password')
+                           <span class="invalid-feedback" role="alert">
+                                <strong>{{$message}}</strong>
+                           </span>         
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Role</label>
