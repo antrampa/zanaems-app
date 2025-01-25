@@ -36,7 +36,17 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li>
+                        <!-- Authentication -->
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                         onClick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"> {{ __('Log Out') }}</a>
+                            <form method="POST" id="logout-form" 
+                                action="{{ route('logout') }}" style="display: none;">
+                                @csrf
+                            </form>
+
+                        </li>
                     </ul>
                 </li>
             </ul>

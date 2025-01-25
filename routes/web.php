@@ -6,9 +6,6 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::middleware([
     'auth:sanctum',
@@ -23,6 +20,10 @@ Route::middleware([
         return view('greeting', ['name' => 'Antonis']);
     })->name('greeting');
 
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    
     Route::resource('departments', DepartmentController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
