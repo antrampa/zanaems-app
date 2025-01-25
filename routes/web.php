@@ -22,8 +22,8 @@ Route::middleware([
     Route::get('/greeting', function () {
         return view('greeting', ['name' => 'Antonis']);
     })->name('greeting');
-});
 
-Route::resource('departments', DepartmentController::class);
-Route::resource('roles', RoleController::class);
-Route::resource('users', UserController::class);
+    Route::resource('departments', DepartmentController::class);
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+});
