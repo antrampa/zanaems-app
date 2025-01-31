@@ -39,95 +39,95 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                            <tr>
                                     <td>Department</td>
                                     <td>
-                                        <input type="checkbox" name="name[department]['can-add']" 
+                                        <input type="checkbox" name="name[department][can-add]" 
                                             value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[department]['can-edit']" 
+                                        <input type="checkbox" name="name[department][can-edit]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[department]['can-view']" 
+                                        <input type="checkbox" name="name[department][can-view]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[department]['can-delete']" 
+                                        <input type="checkbox" name="name[department][can-delete]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[department]['can-list']" 
+                                        <input type="checkbox" name="name[department][can-list]" 
                                     value="1"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Role</td>
                                     <td>
-                                        <input type="checkbox" name="name[role]['can-add']" 
+                                        <input type="checkbox" name="name[role][can-add]" 
                                             value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[role]['can-edit']" 
+                                        <input type="checkbox" name="name[role][can-edit]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[role]['can-view']" 
+                                        <input type="checkbox" name="name[role][can-view]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[role]['can-delete']" 
+                                        <input type="checkbox" name="name[role][can-delete]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[role]['can-list']" 
+                                        <input type="checkbox" name="name[role][can-list]" 
                                     value="1"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Permission</td>
                                     <td>
-                                        <input type="checkbox" name="name[permission]['can-add']" 
+                                        <input type="checkbox" name="name[permission][can-add]" 
                                             value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[permission]['can-edit']" 
+                                        <input type="checkbox" name="name[permission][can-edit]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[permission]['can-view']" 
+                                        <input type="checkbox" name="name[permission][can-view]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[permission]['can-delete']" 
+                                        <input type="checkbox" name="name[permission][can-delete]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[permission]['can-list']" 
+                                        <input type="checkbox" name="name[permission][can-list]" 
                                     value="1"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>User</td>
                                     <td>
-                                        <input type="checkbox" name="name[user]['can-add']" 
+                                        <input type="checkbox" name="name[user][can-add]" 
                                             value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[user]['can-edit']" 
+                                        <input type="checkbox" name="name[user][can-edit]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[user]['can-view']" 
+                                        <input type="checkbox" name="name[user][can-view]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[user]['can-delete']" 
+                                        <input type="checkbox" name="name[user][can-delete]" 
                                     value="1"/>
                                     </td>
                                     <td>
-                                        <input type="checkbox" name="name[user]['can-list']" 
+                                        <input type="checkbox" name="name[user][can-list]" 
                                     value="1"/>
                                     </td>
                                 </tr>
