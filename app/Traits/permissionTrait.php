@@ -14,10 +14,10 @@ trait permissionTrait {
                 return abort(401);
         }
 
-        if(!isset(auth()->user()->role->permission['name']['department']['can-edit']) && 
-            \Route::is('departments.edit')) {
-                return abort(401);
-        }
+        // if(!isset(auth()->user()->role->permission['name']['department']['can-edit']) && 
+        //     \Route::is('departments.edit')) {
+        //         return abort(401);
+        // }
 
         if(!isset(auth()->user()->role->permission['name']['department']['can-delete']) && 
             \Route::is('departments.destroy')) {
