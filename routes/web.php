@@ -6,6 +6,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\LeaveController;
 
 Route::middleware([
     'auth:sanctum',
@@ -30,4 +31,5 @@ Route::middleware([
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('permissions', PermissionController::class);
+    Route::resource('leaves', LeaveController::class);
 });
