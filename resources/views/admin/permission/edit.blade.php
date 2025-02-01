@@ -183,6 +183,8 @@
                             </tbody>
                         </table>
                         <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="{{route('permissions.index')}}" class="float-right" 
+                        style="float: right;">Back</a>
                     </div>
                 </div>
             </form>
