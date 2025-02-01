@@ -22,6 +22,7 @@
                         <th>SN</th>
                         <th>Name</th>
                         <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,11 +32,39 @@
                         <td>{{$key+1}}</td>
                         <td>{{$permission->role->name}}</td>
                         <td><a href="{{route('permissions.edit',[$permission->id])}}"><i class="fas fa-edit"></i></a></td>
+                        <td>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$permission->id}}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal_{{$permission->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <form action="{{route('permissions.destroy', [$permission->id])}}" method="post">@csrf
+                                        {{method_field('DELETE')}}
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Department</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Do you want to delete <strong>{{$permission->role->name}}</strong> ? 
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Model End-->
+
+                        </td>
                     </tr>
                     @endforeach
                 @else 
                     <tr>
-                        <td colspan="3" align="center">
+                        <td colspan="4" align="center">
                             No permissions to display
                         </td>
                     </tr>
