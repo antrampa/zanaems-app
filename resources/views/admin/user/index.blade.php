@@ -62,33 +62,39 @@
                         <td>{{$user->start_from}}</td>
                         <td>{{$user->address}}</td>
                         <td>{{$user->mobile_number}}</td>
-                        <td><a href="{{route('users.edit',[$user->id])}}"><i class="fas fa-edit"></i></a></td>
                         <td>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$user->id}}">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal_{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <form action="{{route('users.destroy', [$user->id])}}" method="post">@csrf
-                                    {{method_field('DELETE')}}
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete User</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            @if(isset(auth()->user()->role->permission['name']['user']['can-edit']))
+                                <a href="{{route('users.edit',[$user->id])}}"><i class="fas fa-edit"></i></a>
+                            @endif
+                        </td>
+                        <td>
+                            @if(isset(auth()->user()->role->permission['name']['user']['can-delete']))
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$user->id}}">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal_{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <form action="{{route('users.destroy', [$user->id])}}" method="post">@csrf
+                                        {{method_field('DELETE')}}
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete User</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Do you want to delete {{$user->name}} ? 
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </div>
                                         </div>
-                                        <div class="modal-body">
-                                            Do you want to delete {{$user->name}} ? 
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            </div>
-                            <!-- Model End-->
+                                    </form>
+                                </div>
+                                </div>
+                                <!-- Model End-->
+                             @endif
                         </td>
                     </tr>
                     @endforeach
