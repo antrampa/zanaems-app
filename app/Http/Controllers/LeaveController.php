@@ -28,7 +28,19 @@ class LeaveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'from'=>'required',
+            'to'=>'required',
+            'description'=>'required',
+            'type'=>'required'
+        ]);
+
+        $data = $request->all();
+        $data['user_id'] = auth()->user()->id;
+        $data['message'] = '';
+        $data['status'] = 0;
+        Leave::create($data);
+        return redirect()->back()->with('message', 'Leave Created!');
     }
 
     /**
