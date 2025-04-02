@@ -105,7 +105,33 @@
                 <td>
                     <a href="{{route('leaves.edit',[$leave->id])}}"><i class="fas fa-edit"></i></a>
                 </td>
-                <td>delete</td>
+                <td>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$leave->id}}">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal_{{$leave->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <form action="{{route('leaves.destroy', [$leave->id])}}" method="post">@csrf
+                                {{method_field('DELETE')}}
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Leave</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete ? 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Model End-->
+                </td>
             </tr>
             @endforeach
         </tbody>
