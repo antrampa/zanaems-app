@@ -20,7 +20,8 @@ class LeaveController extends Controller
      */
     public function create()
     {
-        return view('admin.leave.create');
+        $leaves = Leave::latest()->where('user_id',auth()->user()->id)->get();
+        return view('admin.leave.create', compact('leaves'));
     }
 
     /**
