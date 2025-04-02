@@ -32,6 +32,5 @@ Route::middleware([
     Route::resource('users', UserController::class);
     Route::resource('permissions', PermissionController::class);
     Route::resource('leaves', LeaveController::class);
-    //Route::post('accept-reject-leave/{id}','LeaveController@acceptReject')->name('accept.reject');
     Route::post('accept-reject-leave/{id}', [LeaveController::class, 'acceptReject'])->name('accept.reject');
 });

@@ -86,5 +86,11 @@ trait permissionTrait {
             \Route::is('permissions.destroy')) {
                 return abort(401);
         }
+
+        //approve-reject staff leave
+        if(!isset(auth()->user()->role->permission['name']['leave']['can-list']) && 
+            \Route::is('leaves.index')) {
+                return abort(401);
+        }
     }
 }
