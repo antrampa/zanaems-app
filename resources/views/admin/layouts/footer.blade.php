@@ -23,10 +23,9 @@
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
         <script>
             $( function() {
-                $( "#datepicker" ).datepicker();
-                //$( "#datepicker" ).datepicker("option", "dateFormat", "yy-mm-dd");
+                $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"}).val();
                 
-                $( "#datepicker1" ).datepicker();
+                $( "#datepicker1" ).datepicker({dateFormat:"yy-mm-dd"}).val();
             } );
         </script>
     </body>
