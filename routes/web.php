@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\NoticeController;
 
 Route::middleware([
     'auth:sanctum',
@@ -33,4 +34,5 @@ Route::middleware([
     Route::resource('permissions', PermissionController::class);
     Route::resource('leaves', LeaveController::class);
     Route::post('accept-reject-leave/{id}', [LeaveController::class, 'acceptReject'])->name('accept.reject');
+    Route::resource('notices', NoticeController::class);
 });
