@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use App\Models\Notice;
+use App\Models\Notice;
 
 class NoticeController extends Controller
 {
@@ -12,7 +12,7 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        return "Hello!";
+        return Notice::all();
         //return view('admin.notice.create');
     }
 
@@ -29,7 +29,14 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+            'date'=>'required',
+            'name'=>'required'
+        ]);
+        Notice::create($request->all());
+        return redirect()->route('notices.index')->with('message', 'Notice created Successfully!');
     }
 
     /**
