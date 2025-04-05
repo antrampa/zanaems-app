@@ -12,8 +12,8 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        return Notice::all();
-        //return view('admin.notice.create');
+        $notices = Notice::latest()->get();
+        return view('admin.notice.index', compact('notices'));
     }
 
     /**
