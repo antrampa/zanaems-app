@@ -92,5 +92,27 @@ trait permissionTrait {
             \Route::is('leaves.index')) {
                 return abort(401);
         }
+
+        //Notice
+        if(!isset(auth()->user()->role->permission['name']['notice']['can-list']) && 
+            \Route::is('notices.index')) {
+                return abort(401);
+        }
+
+        if(!isset(auth()->user()->role->permission['name']['notice']['can-add']) && 
+            \Route::is('notices.create')) {
+                return abort(401);
+        }
+
+        if(!isset(auth()->user()->role->permission['name']['notice']['can-edit']) && 
+            \Route::is('notices.edit')) {
+                return abort(401);
+        }
+
+        if(!isset(auth()->user()->role->permission['name']['notice']['can-delete']) && 
+            \Route::is('notices.destroy')) {
+                return abort(401);
+        }
+
     }
 }
