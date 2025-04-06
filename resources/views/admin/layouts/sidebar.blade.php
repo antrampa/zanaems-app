@@ -75,8 +75,10 @@
                                     </div>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseLeaves" aria-expanded="false" aria-controls="pagesCollapseLeaves">
-                            Staff leave 
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" 
+                            data-bs-target="#pagesCollapseLeaves" aria-expanded="false" 
+                            aria-controls="pagesCollapseLeaves">
+                                <i class="fas fa-pencil-alt"></i>&nbsp;Staff leave 
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="pagesCollapseLeaves" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
@@ -89,7 +91,7 @@
                             </div>
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseNotice" aria-expanded="false" aria-controls="pagesCollapseNotice">
-                                Notice
+                                <i class="fas fa-book"></i>&nbsp;Staff Notice
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="pagesCollapseNotice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
