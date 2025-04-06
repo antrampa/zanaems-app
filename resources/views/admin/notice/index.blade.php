@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <p>{{$notice->description}}</p>
                     <p class="badge bg-success">Date: {{$notice->date}}</p>
-                    <p class="badge bg-warning">User: {{$notice->name}}</p>
+                    <p class="badge bg-warning">Create by: {{$notice->name}}</p>
 
                 </div>
                 <div class="card-footer">
