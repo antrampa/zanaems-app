@@ -65,7 +65,9 @@
                         @enderror
                     </div>
                     <div class="form-group mt-4">
+                        @if(isset(auth()->user()->role->permission['name']['notice']['can-edit']))
                             <button type="submit" class="btn btn-primary">Update</button>
+                        @endif
                     </div>
                     </div>
                 </div>
