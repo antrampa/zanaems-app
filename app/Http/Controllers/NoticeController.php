@@ -71,6 +71,7 @@ class NoticeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Notice::find($id)->delete();
+        return redirect()->route('notices.index')->with('message', 'Notice deleted Successfully');
     }
 }
