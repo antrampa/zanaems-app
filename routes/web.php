@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\MailController;
 
 Route::middleware([
     'auth:sanctum',
@@ -35,4 +36,5 @@ Route::middleware([
     Route::resource('leaves', LeaveController::class);
     Route::post('accept-reject-leave/{id}', [LeaveController::class, 'acceptReject'])->name('accept.reject');
     Route::resource('notices', NoticeController::class);
+    Route::get('/mail', [MailController::class, 'create']);
 });
