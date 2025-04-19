@@ -3,11 +3,16 @@
 @section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
+        @if(Session::has('message'))
+            <div class="alert alert-success">
+                {{Session::get('message')}}
+            </div>
+        @endif
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Send Mail</div>
                 <div class="card-body">
-                    <form action="" method="post" enctype="multipart/form-data">@csrf
+                    <form action="{{route('mails.store')}}" method="post" enctype="multipart/form-data">@csrf
                         <div class="form-group">
                             <label for="mail">Select</label>
                             <select name="mail" id="mail" class="form-control">

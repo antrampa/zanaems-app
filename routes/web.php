@@ -37,4 +37,5 @@ Route::middleware([
     Route::post('accept-reject-leave/{id}', [LeaveController::class, 'acceptReject'])->name('accept.reject');
     Route::resource('notices', NoticeController::class);
     Route::get('/mail', [MailController::class, 'create']);
+    Route::post('/mail', [MailController::class, 'store'])->name('mails.store');
 });

@@ -12,14 +12,30 @@ use Illuminate\Queue\SerializesModels;
 class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
+    public $details;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($details = [])
     {
-        //
+        $this->details = $details;
     }
+
+    public function build() {
+        return $this->subject('Mail from ZanaEMS Application')
+                    ->view('admin.email.sendmail')
+                    ->attach($this->details['file']->getRealPath(), [
+                        'as' => $this->details['file']->getClientOriginalName(),
+                        'mime' => $this->details['file']->getClientMimeType(),
+                    ]);
+    }
+
+    // public function __invoke() {
+    //     $this->subject('Mail from ZanaEMS Application!')
+    //          ->view('admin.email.sendmail')
+    //          ->attach();
+    // }
 
     /**
      * Get the message envelope.
@@ -31,15 +47,15 @@ class SendMail extends Mailable
         );
     }
 
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
+    // /**
+    //  * Get the message content definition.
+    //  */
+    // public function content(): Content
+    // {
+    //     return new Content(
+    //         view: 'view.name',
+    //     );
+    // }
 
     /**
      * Get the attachments for the message.
